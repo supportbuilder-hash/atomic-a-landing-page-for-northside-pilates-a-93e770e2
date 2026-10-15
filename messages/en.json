@@ -1,0 +1,214 @@
+{
+  "nav": {
+    "home": "Home",
+    "classes": "Classes",
+    "instructors": "Instructors",
+    "pricing": "Pricing",
+    "contact": "Contact"
+  },
+  "cta": {
+    "primary": "Start Free Trial"
+  },
+  "footer": {
+    "tagline": "Calm, considered movement for busy professionals",
+    "rights": "All rights reserved.",
+    "columns": {
+      "studio": "Studio",
+      "visit": "Visit"
+    },
+    "links": {
+      "classTypes": "Class Types",
+      "instructors": "Instructors",
+      "pricing": "Pricing",
+      "freeTrial": "Free Trial",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "eyebrow": "Boutique Pilates, Uptown",
+    "title": "Move with intention.",
+    "titleAccent": "Reclaim your hour.",
+    "subtitle": "Northside Pilates is a quiet, considered studio built around the schedules of busy professionals. Reformer and mat classes, capped at eight people, led by instructors who know your name.",
+    "primaryCta": "Book a free class",
+    "secondaryCta": "See class types",
+    "capacityBadge": "Capped at 8 per class",
+    "capacitySubtext": "So every session stays personal"
+  },
+  "classTypes": {
+    "eyebrow": "Class Types",
+    "title": "A format for every kind of schedule",
+    "subtitle": "From focused reformer work to recovery and stretch, every class is built around precise, controlled movement rather than sweat for its own sake.",
+    "items": [
+      {
+        "title": "Reformer Flow",
+        "description": "A full-body reformer sequence built on controlled, flowing transitions.",
+        "duration": "50 min",
+        "level": "All levels"
+      },
+      {
+        "title": "Mat Foundations",
+        "description": "Classical mat work focused on core control and posture, no equipment required.",
+        "duration": "45 min",
+        "level": "Beginner friendly"
+      },
+      {
+        "title": "Barre Fusion",
+        "description": "Small isometric movements paired with reformer resistance for long, lean strength.",
+        "duration": "50 min",
+        "level": "Intermediate"
+      },
+      {
+        "title": "Private Sessions",
+        "description": "One-to-one instruction tailored to injury recovery, specific goals, or simply your own pace.",
+        "duration": "55 min",
+        "level": "Any level"
+      },
+      {
+        "title": "Prenatal & Postnatal",
+        "description": "Supportive, physician-informed sequencing for every stage of pregnancy and recovery.",
+        "duration": "45 min",
+        "level": "Prenatal / postnatal"
+      },
+      {
+        "title": "Recovery & Stretch",
+        "description": "Slow, guided mobility work to unwind tight hips, shoulders, and a desk-bound back.",
+        "duration": "40 min",
+        "level": "All levels"
+      }
+    ]
+  },
+  "philosophy": {
+    "eyebrow": "Why Northside",
+    "title": "Built for people who sit in meetings all day",
+    "subtitle": "We designed the studio, the schedule, and the coaching style around the realities of a busy workweek.",
+    "items": [
+      {
+        "title": "Classes that fit your calendar",
+        "description": "Early mornings, lunch hours, and evening slots, with online booking that updates in real time."
+      },
+      {
+        "title": "Capped class sizes",
+        "description": "Every reformer class is kept small so instructors can correct your form, not just count reps."
+      },
+      {
+        "title": "Instruction over intensity",
+        "description": "We care more about how you move than how hard you sweat. Technique first, always."
+      },
+      {
+        "title": "A studio that feels like an exhale",
+        "description": "Warm light, quiet rooms, and a front desk that remembers your name and your usual mat."
+      }
+    ]
+  },
+  "instructors": {
+    "eyebrow": "Instructors",
+    "title": "Taught by people who take it seriously",
+    "subtitle": "Every instructor at Northside trains year-round and teaches a small enough roster of clients to actually know how you move.",
+    "items": [
+      {
+        "name": "Mara Lindqvist",
+        "role": "Studio Director & Reformer Lead",
+        "bio": "Trained in classical and contemporary method across two decades, Mara built Northside around precision and patience.",
+        "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Mara%20Lindqvist"
+      },
+      {
+        "name": "Devon Osei",
+        "role": "Barre & Strength",
+        "bio": "A former dancer who brings musicality and control to every barre fusion class.",
+        "image": "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/7c71c69ada2646779cf043ffc12132f9.jpg"
+      },
+      {
+        "name": "Priya Chandran",
+        "role": "Prenatal Specialist",
+        "bio": "Certified in prenatal and postnatal movement, Priya guides clients through every stage with care.",
+        "image": "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/97b8fd49e9284680835a80450eda2bd1.jpg"
+      },
+      {
+        "name": "Tom Whitfield",
+        "role": "Mobility & Recovery",
+        "bio": "Tom's recovery sessions are the quiet reset most of our clients didn't know they needed.",
+        "image": "https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/3ccf11a237264e1698e486487fbebf42.jpg"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Membership",
+    "title": "Simple pricing, no surprises",
+    "subtitle": "Try a single class or commit to a rhythm. Every plan includes access to the full class schedule.",
+    "plans": [
+      {
+        "name": "Drop-In",
+        "price": "$38",
+        "period": "/class",
+        "description": "Try a single class, no commitment.",
+        "features": [
+          "Any class type",
+          "Reformer or mat",
+          "Book online"
+        ],
+        "cta": "Book a class",
+        "highlighted": false
+      },
+      {
+        "name": "Monthly Unlimited",
+        "price": "$249",
+        "period": "/month",
+        "description": "Unlimited classes for clients who practice three or more times a week.",
+        "features": [
+          "Unlimited reformer & mat classes",
+          "Priority booking window",
+          "One guest pass per month",
+          "Pause anytime"
+        ],
+        "cta": "Start monthly",
+        "highlighted": true,
+        "badge": "Most popular"
+      },
+      {
+        "name": "Founding Member",
+        "price": "$199",
+        "period": "/month",
+        "description": "Our founding rate for early members, locked in for as long as you stay.",
+        "features": [
+          "Unlimited classes",
+          "Two guest passes per month",
+          "Locked-in rate",
+          "Complimentary private session each quarter"
+        ],
+        "cta": "Apply to join",
+        "highlighted": false
+      }
+    ]
+  },
+  "freeTrial": {
+    "eyebrow": "Free Trial",
+    "title": "Your first class is on us",
+    "subtitle": "Spend fifty minutes with us before you commit to anything. Bring a water bottle, we'll handle the rest.",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Jordan Lee",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "jordan@email.com",
+    "classLabel": "Preferred class",
+    "submitLabel": "Claim my free class",
+    "successMessage": "You're booked. Check your inbox for class details."
+  },
+  "contact": {
+    "eyebrow": "Visit Us",
+    "title": "Find us",
+    "subtitle": "Tucked just off the main strip, five minutes from the office district.",
+    "details": [
+      {
+        "label": "Address",
+        "value": "118 Mill Street, Unit 2, Northside"
+      },
+      {
+        "label": "Hours",
+        "value": "Mon–Fri 6am–8pm · Sat–Sun 8am–2pm"
+      },
+      {
+        "label": "Email",
+        "value": "hello@northsidepilates.studio"
+      }
+    ]
+  }
+}
