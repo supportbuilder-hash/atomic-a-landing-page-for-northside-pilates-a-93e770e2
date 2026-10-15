@@ -131,6 +131,66 @@
       }
     ]
   },
+  "schedule": {
+    "eyebrow": "Horario semanal",
+    "title": "Encuentra tu horario",
+    "subtitle": "Un vistazo rápido a la semana completa de clases, para que puedas reservar alrededor de tu agenda.",
+    "days": [
+      {
+        "day": "Lunes",
+        "classes": [
+          { "time": "6:00 AM", "title": "Reformer Flow", "instructor": "Mara Lindqvist" },
+          { "time": "12:15 PM", "title": "Mat Foundations", "instructor": "Tom Whitfield" },
+          { "time": "6:00 PM", "title": "Barre Fusion", "instructor": "Devon Osei" }
+        ]
+      },
+      {
+        "day": "Martes",
+        "classes": [
+          { "time": "6:45 AM", "title": "Mat Foundations", "instructor": "Tom Whitfield" },
+          { "time": "5:30 PM", "title": "Prenatal & Postnatal", "instructor": "Priya Chandran" },
+          { "time": "7:00 PM", "title": "Recovery & Stretch", "instructor": "Tom Whitfield" }
+        ]
+      },
+      {
+        "day": "Miércoles",
+        "classes": [
+          { "time": "6:00 AM", "title": "Reformer Flow", "instructor": "Mara Lindqvist" },
+          { "time": "12:15 PM", "title": "Barre Fusion", "instructor": "Devon Osei" },
+          { "time": "6:00 PM", "title": "Private Sessions", "instructor": "Mara Lindqvist" }
+        ]
+      },
+      {
+        "day": "Jueves",
+        "classes": [
+          { "time": "6:45 AM", "title": "Mat Foundations", "instructor": "Tom Whitfield" },
+          { "time": "5:30 PM", "title": "Reformer Flow", "instructor": "Mara Lindqvist" },
+          { "time": "7:00 PM", "title": "Recovery & Stretch", "instructor": "Tom Whitfield" }
+        ]
+      },
+      {
+        "day": "Viernes",
+        "classes": [
+          { "time": "6:00 AM", "title": "Reformer Flow", "instructor": "Mara Lindqvist" },
+          { "time": "12:15 PM", "title": "Barre Fusion", "instructor": "Devon Osei" },
+          { "time": "5:30 PM", "title": "Prenatal & Postnatal", "instructor": "Priya Chandran" }
+        ]
+      },
+      {
+        "day": "Sábado",
+        "classes": [
+          { "time": "8:00 AM", "title": "Reformer Flow", "instructor": "Mara Lindqvist" },
+          { "time": "9:30 AM", "title": "Mat Foundations", "instructor": "Devon Osei" }
+        ]
+      },
+      {
+        "day": "Domingo",
+        "classes": [
+          { "time": "9:00 AM", "title": "Recovery & Stretch", "instructor": "Tom Whitfield" }
+        ]
+      }
+    ]
+  },
   "pricing": {
     "eyebrow": "Membresía",
     "title": "Precios simples, sin sorpresas",

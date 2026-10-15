@@ -21,6 +21,7 @@ type PricingPlan = {
   badge?: string;
 };
 type ContactDetail = { label: string; value: string };
+type ScheduleDay = { day: string; classes: { time: string; title: string; instructor: string }[] };
 
 const CLASS_ICONS = [Activity, Heart, Sparkles, User, Heart, Clock];
 const PHILOSOPHY_ICONS = [Calendar, User, Sparkles, Heart];
@@ -112,11 +113,13 @@ function FreeTrialForm() {
 
 export default function Home() {
   const t = useTranslations();
+  const scheduleT = useTranslations("schedule");
   const classTypes = raw<ClassItem>(t.raw("classTypes.items"));
   const philosophyItems = raw<PhilosophyItem>(t.raw("philosophy.items"));
   const instructors = raw<InstructorItem>(t.raw("instructors.items"));
   const plans = raw<PricingPlan>(t.raw("pricing.plans"));
   const contactDetails = raw<ContactDetail>(t.raw("contact.details"));
+  const scheduleDays = raw<ScheduleDay>(scheduleT.raw("days"));
 
   return (
     <main>
@@ -180,70 +183,65 @@ export default function Home() {
         </section>
       </Reveal>
 
-      {/* Class types */}
+      {/* Class Types */}
       <Reveal>
-        <section id="class-types" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-wide text-primary">{t("classTypes.eyebrow")}</p>
-            <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              {t("classTypes.title")}
-            </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">{t("classTypes.subtitle")}</p>
-          </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {classTypes.map((item, i) => {
-              const Icon = CLASS_ICONS[i % CLASS_ICONS.length] ?? Activity;
-              return (
-                <Reveal key={item.title} delay={i * 0.06} className={i === 0 ? "sm:col-span-2 lg:col-span-1" : ""}>
-                  <div className="group h-full rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10">
-                      <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+        <section id="class-types" className="bg-background py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">{t("classTypes.eyebrow")}</p>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">{t("classTypes.title")}</h2>
+              <p className="mt-4 text-lg text-muted-foreground">{t("classTypes.subtitle")}</p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {classTypes.map((item, i) => {
+                const Icon = CLASS_ICONS[i % CLASS_ICONS.length];
+                return (
+                  <div
+                    key={item.title}
+                    className="rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                  >
+                    <div className="mb-4 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
                     </div>
-                    <h3 className="mt-5 text-lg font-semibold text-card-foreground">{item.title}</h3>
+                    <h3 className="font-display text-lg font-semibold">{item.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                    <div className="mt-5 flex items-center gap-3 text-xs font-medium text-muted-foreground">
+                    <div className="mt-4 flex items-center gap-4 text-xs font-medium text-muted-foreground">
                       <span className="inline-flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5" aria-hidden="true" /> {item.duration}
+                        <Clock className="h-3.5 w-3.5" aria-hidden="true" />
+                        {item.duration}
                       </span>
-                      <span aria-hidden="true">·</span>
                       <span>{item.level}</span>
                     </div>
                   </div>
-                </Reveal>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </section>
       </Reveal>
 
-      {/* Philosophy / value props */}
+      {/* Philosophy */}
       <Reveal>
-        <section className="border-y border-border bg-secondary">
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:py-28 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <p className="text-sm font-medium uppercase tracking-wide text-primary">{t("philosophy.eyebrow")}</p>
-              <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                {t("philosophy.title")}
-              </h2>
-              <p className="mt-4 max-w-md text-pretty text-lg leading-relaxed text-muted-foreground">
-                {t("philosophy.subtitle")}
-              </p>
+        <section className="bg-muted/40 py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">{t("philosophy.eyebrow")}</p>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">{t("philosophy.title")}</h2>
+              <p className="mt-4 text-lg text-muted-foreground">{t("philosophy.subtitle")}</p>
             </div>
-            <div className="divide-y divide-border">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {philosophyItems.map((item, i) => {
-                const Icon = PHILOSOPHY_ICONS[i % PHILOSOPHY_ICONS.length] ?? Sparkles;
+                const Icon = PHILOSOPHY_ICONS[i % PHILOSOPHY_ICONS.length];
                 return (
-                  <Reveal key={item.title} delay={i * 0.06}>
-                    <div className="flex gap-4 py-5 first:pt-0">
-                      <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-card">
-                        <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground">{item.title}</h3>
-                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                      </div>
+                  <div key={item.title} className="flex gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
                     </div>
-                  </Reveal>
+                    <div>
+                      <h3 className="font-display text-lg font-semibold">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                    </div>
+                  </div>
                 );
               })}
             </div>
@@ -253,101 +251,124 @@ export default function Home() {
 
       {/* Instructors */}
       <Reveal>
-        <section id="instructors" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-wide text-primary">{t("instructors.eyebrow")}</p>
-            <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              {t("instructors.title")}
-            </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">{t("instructors.subtitle")}</p>
-          </div>
-          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {instructors.map((person, i) => (
-              <Reveal key={person.name} delay={i * 0.07}>
-                <div className="surface-elevated overflow-hidden rounded-2xl border border-border bg-card">
-                  <img src={person.image} alt={`Portrait of ${person.name}, ${person.role}`} className="h-56 w-full object-cover" />
-                  <div className="p-5">
-                    <h3 className="font-semibold text-card-foreground">{person.name}</h3>
-                    <p className="text-xs font-medium uppercase tracking-wide text-primary">{person.role}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{person.bio}</p>
+        <section id="instructors" className="bg-background py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">{t("instructors.eyebrow")}</p>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">{t("instructors.title")}</h2>
+              <p className="mt-4 text-lg text-muted-foreground">{t("instructors.subtitle")}</p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {instructors.map((person) => (
+                <div key={person.name} className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground shadow-sm">
+                  <img src={person.image} alt={person.name} className="h-64 w-full object-cover" />
+                  <div className="p-6">
+                    <h3 className="font-display text-lg font-semibold">{person.name}</h3>
+                    <p className="text-sm font-medium text-primary">{person.role}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{person.bio}</p>
                   </div>
                 </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-      </Reveal>
-
-      {/* Pricing */}
-      <Reveal>
-        <section id="pricing" className="relative overflow-hidden bg-mesh">
-          <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="text-sm font-medium uppercase tracking-wide text-primary">{t("pricing.eyebrow")}</p>
-              <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                {t("pricing.title")}
-              </h2>
-              <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">{t("pricing.subtitle")}</p>
-            </div>
-            <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
-              {plans.map((plan, i) => (
-                <Reveal key={plan.name} delay={i * 0.08}>
-                  <div
-                    className={
-                      plan.highlighted
-                        ? "glass-strong relative flex h-full flex-col rounded-2xl p-8 shadow-glow ring-1 ring-primary/40"
-                        : "glass relative flex h-full flex-col rounded-2xl p-8"
-                    }
-                  >
-                    {plan.badge ? (
-                      <span className="absolute -top-3 left-8 inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
-                        <Star className="h-3 w-3" aria-hidden="true" /> {plan.badge}
-                      </span>
-                    ) : null}
-                    <h3 className="text-lg font-semibold text-card-foreground">{plan.name}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
-                    <div className="mt-6 flex items-baseline gap-1">
-                      <span className="text-4xl font-semibold tracking-tight text-foreground">{plan.price}</span>
-                      <span className="text-sm text-muted-foreground">{plan.period}</span>
-                    </div>
-                    <ul className="mt-6 flex-1 space-y-3">
-                      {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <Check className="mt-0.5 h-4 w-4 flex-none text-primary" aria-hidden="true" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <a
-                      href="#free-trial"
-                      className={
-                        plan.highlighted
-                          ? "mt-8 flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transition-none"
-                          : "mt-8 flex items-center justify-center rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-card-foreground transition hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transition-none"
-                      }
-                    >
-                      {plan.cta}
-                    </a>
-                  </div>
-                </Reveal>
               ))}
             </div>
           </div>
         </section>
       </Reveal>
 
-      {/* Free trial sign-up */}
+      {/* Weekly Class Schedule */}
       <Reveal>
-        <section id="free-trial" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+        <section id="schedule" className="bg-muted/40 py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">{scheduleT("eyebrow")}</p>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">{scheduleT("title")}</h2>
+              <p className="mt-4 text-lg text-muted-foreground">{scheduleT("subtitle")}</p>
+            </div>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-7">
+              {scheduleDays.map((day) => (
+                <div key={day.day} className="rounded-lg border border-border bg-card p-4 text-card-foreground">
+                  <h3 className="font-display text-base font-semibold">{day.day}</h3>
+                  <div className="mt-3 space-y-3">
+                    {day.classes.map((cls, i) => (
+                      <div key={i} className="border-t border-border pt-3 first:border-t-0 first:pt-0">
+                        <div className="flex items-center gap-1.5 text-sm font-medium">
+                          <Clock className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                          {cls.time}
+                        </div>
+                        <p className="mt-1 text-sm text-card-foreground">{cls.title}</p>
+                        <p className="text-sm text-muted-foreground">{cls.instructor}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Pricing */}
+      <Reveal>
+        <section id="pricing" className="bg-background py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">{t("pricing.eyebrow")}</p>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">{t("pricing.title")}</h2>
+              <p className="mt-4 text-lg text-muted-foreground">{t("pricing.subtitle")}</p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              {plans.map((plan) => (
+                <div
+                  key={plan.name}
+                  className={
+                    plan.highlighted
+                      ? "relative flex flex-col rounded-2xl border-2 border-primary bg-card p-8 text-card-foreground shadow-glow"
+                      : "relative flex flex-col rounded-2xl border border-border bg-card p-8 text-card-foreground shadow-sm"
+                  }
+                >
+                  {plan.badge && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
+                      {plan.badge}
+                    </span>
+                  )}
+                  <h3 className="font-display text-xl font-semibold">{plan.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
+                  <div className="mt-6 flex items-baseline gap-1">
+                    <span className="font-display text-4xl font-bold">{plan.price}</span>
+                    <span className="text-sm text-muted-foreground">{plan.period}</span>
+                  </div>
+                  <ul className="mt-6 flex-1 space-y-3">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-2 text-sm text-card-foreground">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#free-trial"
+                    className={
+                      plan.highlighted
+                        ? "mt-8 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transition-none"
+                        : "mt-8 inline-flex items-center justify-center rounded-lg border border-border px-6 py-3 text-sm font-semibold text-card-foreground transition hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transition-none"
+                    }
+                  >
+                    {plan.cta}
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Free Trial */}
+      <Reveal>
+        <section id="free-trial" className="bg-mesh py-20 md:py-28">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-medium uppercase tracking-wide text-primary">{t("freeTrial.eyebrow")}</p>
-              <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                {t("freeTrial.title")}
-              </h2>
-              <p className="mt-4 max-w-md text-pretty text-lg leading-relaxed text-muted-foreground">
-                {t("freeTrial.subtitle")}
-              </p>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">{t("freeTrial.eyebrow")}</p>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">{t("freeTrial.title")}</h2>
+              <p className="mt-4 text-lg text-muted-foreground">{t("freeTrial.subtitle")}</p>
             </div>
             <FreeTrialForm />
           </div>
@@ -356,39 +377,28 @@ export default function Home() {
 
       {/* Contact */}
       <Reveal>
-        <section id="contact" className="border-t border-border bg-secondary">
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:py-28 lg:grid-cols-2">
-            <div className="overflow-hidden rounded-2xl">
-              <img
-                src="https://titoaistorageaccount.blob.core.windows.net/titoai-storage/site-images/d26f4cc299214ddd9e2f97cfffc6f0a9.jpg"
-                alt="The entrance and reception area of Northside Pilates studio"
-                className="h-80 w-full rounded-2xl object-cover shadow-glow"
-              />
+        <section id="contact" className="bg-background py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">{t("contact.eyebrow")}</p>
+              <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">{t("contact.title")}</h2>
+              <p className="mt-4 text-lg text-muted-foreground">{t("contact.subtitle")}</p>
             </div>
-            <div>
-              <p className="text-sm font-medium uppercase tracking-wide text-primary">{t("contact.eyebrow")}</p>
-              <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                {t("contact.title")}
-              </h2>
-              <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">{t("contact.subtitle")}</p>
-              <ul className="mt-8 space-y-5">
-                {contactDetails.map((detail, i) => {
-                  const Icon = CONTACT_ICONS[i % CONTACT_ICONS.length] ?? Info;
-                  return (
-                    <li key={detail.label} className="flex items-start gap-3">
-                      <div className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-card">
-                        <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                          {detail.label}
-                        </p>
-                        <p className="text-sm font-medium text-foreground">{detail.value}</p>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
+            <div className="mx-auto flex max-w-md flex-col gap-6">
+              {contactDetails.map((detail, i) => {
+                const Icon = CONTACT_ICONS[i % CONTACT_ICONS.length];
+                return (
+                  <div key={detail.label} className="flex items-center gap-4 rounded-lg border border-border bg-card p-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{detail.label}</p>
+                      <p className="text-sm font-medium text-card-foreground">{detail.value}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

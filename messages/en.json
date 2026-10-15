@@ -131,6 +131,68 @@
       }
     ]
   },
+  "schedule": {
+    "eyebrow": "Weekly Schedule",
+    "title": "Find your slot",
+    "subtitle": "A full week of reformer, mat, and recovery classes timed around the workday — early mornings, lunch hours, and evenings.",
+    "days": [
+      {
+        "day": "Monday",
+        "classes": [
+          { "time": "6:30 AM", "title": "Reformer Flow", "instructor": "Mara" },
+          { "time": "12:15 PM", "title": "Mat Foundations", "instructor": "Devon" },
+          { "time": "6:00 PM", "title": "Barre Fusion", "instructor": "Devon" }
+        ]
+      },
+      {
+        "day": "Tuesday",
+        "classes": [
+          { "time": "6:30 AM", "title": "Mat Foundations", "instructor": "Tom" },
+          { "time": "12:15 PM", "title": "Reformer Flow", "instructor": "Mara" },
+          { "time": "5:30 PM", "title": "Prenatal & Postnatal", "instructor": "Priya" },
+          { "time": "7:00 PM", "title": "Recovery & Stretch", "instructor": "Tom" }
+        ]
+      },
+      {
+        "day": "Wednesday",
+        "classes": [
+          { "time": "6:30 AM", "title": "Reformer Flow", "instructor": "Mara" },
+          { "time": "12:15 PM", "title": "Barre Fusion", "instructor": "Devon" },
+          { "time": "6:00 PM", "title": "Private Sessions", "instructor": "Mara" }
+        ]
+      },
+      {
+        "day": "Thursday",
+        "classes": [
+          { "time": "6:30 AM", "title": "Mat Foundations", "instructor": "Tom" },
+          { "time": "12:15 PM", "title": "Reformer Flow", "instructor": "Mara" },
+          { "time": "5:30 PM", "title": "Prenatal & Postnatal", "instructor": "Priya" },
+          { "time": "7:00 PM", "title": "Recovery & Stretch", "instructor": "Tom" }
+        ]
+      },
+      {
+        "day": "Friday",
+        "classes": [
+          { "time": "6:30 AM", "title": "Reformer Flow", "instructor": "Mara" },
+          { "time": "12:15 PM", "title": "Barre Fusion", "instructor": "Devon" },
+          { "time": "5:30 PM", "title": "Recovery & Stretch", "instructor": "Tom" }
+        ]
+      },
+      {
+        "day": "Saturday",
+        "classes": [
+          { "time": "8:30 AM", "title": "Reformer Flow", "instructor": "Mara" },
+          { "time": "10:00 AM", "title": "Mat Foundations", "instructor": "Devon" }
+        ]
+      },
+      {
+        "day": "Sunday",
+        "classes": [
+          { "time": "9:00 AM", "title": "Recovery & Stretch", "instructor": "Tom" }
+        ]
+      }
+    ]
+  },
   "pricing": {
     "eyebrow": "Membership",
     "title": "Simple pricing, no surprises",
